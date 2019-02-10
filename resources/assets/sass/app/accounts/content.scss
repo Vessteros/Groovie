@@ -1,0 +1,17 @@
+// Импорты
+@import "auth-block";
+
+// Переменные
+$border: 1px black solid;
+$margin: auto;
+
+.accounts-content {
+  display: block;
+
+  width: 80vw;
+  height: 70vh;
+
+  border: $border;
+
+  margin: 10vh auto 0 auto;
+}

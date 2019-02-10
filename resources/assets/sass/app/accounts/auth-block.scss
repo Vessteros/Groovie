@@ -1,0 +1,28 @@
+// Переменные
+$width: 82% / 3;
+$margin: 18% / 6;
+$height: 100%;
+$border: 1px black solid;
+
+.auth-block {
+  display: block;
+  float: left;
+
+  width: $width;
+  height: $height;
+  margin: 0 $margin 0 $margin;
+
+  border: $border;
+}
+
+.auth-form {
+  display: block;
+  float: left;
+
+  width: 100%;
+  height: 100%;
+}
+
+.dark-banner {
+  background: #1f648b;
+}
