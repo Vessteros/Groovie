@@ -8333,13 +8333,218 @@ button.close {
   }
 }
 
+.index-content {
+  background: #282c37;
+  color: #9baec8;
+}
+
+.index-main_block {
+  display: block;
+  width: 60vw;
+  height: 60vh;
+  margin: 20vh auto auto auto;
+}
+
+.index-main_block-info {
+  display: block;
+  float: left;
+  width: 65%;
+  height: 100%;
+  padding-right: 5%;
+  border-right: 1px #9baec8 solid;
+}
+
+.index-main_block-auth_block {
+  display: block;
+  float: left;
+  width: 35%;
+  height: 100%;
+  padding-top: 15vh;
+}
+
+.index-main_block-auth_block a {
+  width: 60%;
+  height: 9%;
+  padding-top: 7px;
+  display: block;
+  margin: 5vh auto 5vh auto;
+  text-align: center;
+  border: 1px #9baec8 solid;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #9baec8;
+  -webkit-box-shadow: 0 2px 5px rgba(155, 174, 200, 0.2);
+          box-shadow: 0 2px 5px rgba(155, 174, 200, 0.2);
+}
+
+.index-main_block-auth_block a:hover {
+  color: #fff;
+  background-color: #9baec8;
+}
+
+.app-navbar {
+  display: block;
+  float: left;
+  width: 7vw;
+  height: 100vh;
+  background: #303540;
+  -webkit-box-shadow: 1px 0px 20px 0px #9baec8;
+          box-shadow: 1px 0px 20px 0px #9baec8;
+}
+
+.app-content {
+  display: block;
+  float: left;
+  width: 93vw;
+  height: 100vh;
+}
+
+.app-navbar-logo {
+  display: block;
+  float: left;
+  width: 7vw;
+  height: 4.5vw;
+  text-align: center;
+  font-size: 3vh;
+  padding-top: 2vh;
+}
+
+.app-navbar-navlink {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 12vh;
+  text-align: center;
+}
+
+.app-navbar a:hover,
+.app-navbar-navlink:hover {
+  background: #282c37;
+  color: #9baec8;
+}
+
+.app-navbar-navimg {
+  display: block;
+  float: left;
+  width: 30%;
+  height: 4vh;
+  margin: 2vh 35% 1.5vh 35%;
+  border: none;
+}
+
+.app-navbar-navtitle {
+  display: block;
+  float: left;
+  width: 100%;
+  font-size: 1.5vh;
+}
+
+.app-by {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 7vw;
+  margin-bottom: 0.5vh;
+  text-align: center;
+  font-size: 1.1vh;
+}
+
+.dropdown {
+  list-style-type: none;
+}
+
+.dropdown-toggle {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.app-navbar-usermenu {
+  position: absolute;
+  display: block;
+  bottom: 15vh;
+  width: 7vw;
+  height: 10vh;
+}
+
+.app-navbar-usermenu-title {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  position: relative !important;
+  width: 100%;
+  min-width: 100%;
+  background: #282c37;
+  padding: 0;
+}
+
+.dropdown-menu:hover {
+  color: #3097D1 !important;
+  background-color: #303540 !important;
+}
+
+.dropdown-menu > li {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background: #303540;
+}
+
+.dropdown-menu > li > a {
+  color: #9baec8 !important;
+  background: #303540 !important;
+}
+
+.login-auth_container {
+  display: block;
+  width: 45vw;
+  height: 35vh;
+  margin: 15vh auto auto auto;
+  background: #303540;
+  border-radius: 1vh;
+  -webkit-box-shadow: 0px 7px 12px 0px #9baec8;
+          box-shadow: 0px 7px 12px 0px #9baec8;
+}
+
+.login-auth_container a:hover {
+  color: #9baec8;
+}
+
+.panel-heading {
+  display: block;
+  float: left;
+  width: 100%;
+  font-size: 2vh;
+  border-bottom: 0.1vh solid #9baec8;
+  margin-bottom: 5vh;
+}
+
 .auth-block {
   display: block;
   float: left;
   width: 27.33333333%;
   height: 100%;
   margin: 0 3% 0 3%;
-  border: 1px black solid;
+  border-radius: 2vh;
+  background: #303540;
+  -webkit-box-shadow: 0px 0px 15px 0px #9baec8;
+          box-shadow: 0px 0px 15px 0px #9baec8;
+}
+
+.auth-block > div {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
 }
 
 .auth-form {
@@ -8347,17 +8552,122 @@ button.close {
   float: left;
   width: 100%;
   height: 100%;
+  border-radius: 2vh;
 }
 
 .dark-banner {
   background: #1f648b;
+  cursor: pointer;
+}
+
+.auth-block-title {
+  display: block;
+  float: left;
+  width: 80%;
+  padding: 2.5vh 3% 2vh 3%;
+  margin: 0;
+  height: 8vh;
+  font-size: 3vh;
+}
+
+.auth-block-close {
+  display: block;
+  float: right;
+  padding: 1vh 0 1vh 0;
+  text-align: center;
+  width: 14%;
+  font-size: 3.5vh;
+}
+
+.auth-block-vk_auth {
+  display: block;
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5vh;
+  margin: 2vh 0 2vh 0;
+}
+
+.auth-block-vk_api_notice {
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 0 1vw;
+  height: 39.5vh;
+  margin-bottom: 4vh;
+  overflow-y: auto;
+}
+
+.auth-block-vk_api_notice::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+.auth-block-vk_api_notice::-webkit-scrollbar {
+  width: 6px;
+}
+
+.auth-block-vk_api_notice::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #303540;
+}
+
+.auth-block-vk_api_notice:hover::-webkit-scrollbar-thumb {
+  background: #9baec8;
+}
+
+.auth-block-token_form {
+  display: block;
+  float: left;
+  width: 80%;
+  margin-left: 10%;
+  padding-top: 1vh;
+  height: 6vh;
+  cursor: pointer;
+  text-align: center;
+  font-size: 2.5vh;
+}
+
+.auth-block-token_input {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 50%;
+  margin-top: 25%;
+  border-radius: 5px;
+}
+
+.auth-form-network_img {
+  display: block;
+  width: 11vw;
+  height: 11vw;
+  margin: 40% auto auto auto;
+}
+
+.auth-form-network_title {
+  display: block;
+  width: 15vw;
+  margin: 5vh auto auto auto;
+  text-align: center;
 }
 
 .accounts-content {
   display: block;
-  width: 80vw;
+  width: 85vw;
   height: 70vh;
-  border: 1px black solid;
-  margin: 10vh auto 0 auto;
+  margin: 5vh auto auto auto;
+}
+
+body {
+  background: #282c37;
+  color: #9baec8;
+  overflow: hidden;
+}
+
+a {
+  cursor: pointer !important;
+}
+
+a:hover {
+  text-decoration: none !important;
 }
 

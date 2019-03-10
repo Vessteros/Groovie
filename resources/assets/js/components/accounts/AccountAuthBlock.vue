@@ -2,7 +2,7 @@
     <div class="auth-block">
         <div
                 v-if="showForm"
-                v-on:keyup.esc="switchForm"
+
                 class="auth-form">
 
             <h3>{{ networkTitle }}</h3>
@@ -10,18 +10,18 @@
             <input name="email" v-model="login">
             <input name="pass" v-model="password" type="password">
 
-            <input
+            <input  v-if="redirectUrl === ''"
                     type="submit"
                     v-bind:value="inputValue"
                     @click="authorization">
+
+            <a v-else target="_blank" v-bind:href="redirectUrl">Авторизоваться</a>
         </div>
         <div
                 v-else
                 @click="switchForm"
                 class="auth-form dark-banner">
         </div>
-
-        <div>{{result}}</div>
     </div>
 </template>
 
@@ -29,14 +29,18 @@
     export default {
         name: "AccountAuthBlock",
 
+        props: [
+            'content'
+        ],
+
         data: function () {
             return {
                 showForm: false,
-                networkTitle: 'meh',
+                networkTitle: this.content.networkTitle,
                 inputValue: 'Авторизировать аккаунт',
                 login: '',
                 password: '',
-                result: '',
+                redirectUrl: '',
             }
         },
 
@@ -55,14 +59,17 @@
                         'content-type': 'application/form-data',
                     },
                     data: {
-                        authUrl: 'meh',
+                        authorizationUrl: this.content.authorizationUrl,
                         login: this.login,
-                        pass: this.password,
+                        password: this.password,
+                        networkId: 'vk',
+                        clientId: 94895684,
+                        state: 'secret_state_code',
                     }
                 })
                     .then((response) => {
-                        this.result = response.config;
                         console.log(response);
+                        this.redirectUrl = response.data;
                         this.inputValue = 'Авторизировать аккаунт';
                     })
                     .catch((error) => {
@@ -88,7 +95,7 @@
         },
 
         mounted() {
-            console.log('Component mounted.')
+            console.log(this.content)
         }
     }
 </script>

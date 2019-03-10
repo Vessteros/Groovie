@@ -10,5 +10,28 @@
 
 // App
 
+//Index
+@import "app/index";
+
+//App
+@import "app/app";
+
+//login
+@import "app/login";
+
 // Accounts
 @import "app/accounts/content";
+
+body {
+  background: #282c37;
+  color: #9baec8;
+  overflow: hidden;
+}
+a {
+  cursor: pointer !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+  //color: #9baec8 !important;
+}

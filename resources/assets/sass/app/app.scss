@@ -1,0 +1,120 @@
+.app-navbar {
+  display: block;
+  float: left;
+  width: 7vw;
+  height: 100vh;
+  background: #303540;
+  box-shadow: 1px 0px 20px 0px #9baec8;
+}
+
+.app-content {
+  display: block;
+  float: left;
+  width: 93vw;
+  height: 100vh;
+}
+
+.app-navbar-logo {
+  display: block;
+  float: left;
+  width: 7vw;
+  height: 4.5vw;
+  text-align: center;
+  font-size: 3vh;
+  padding-top: 2vh;
+}
+
+.app-navbar-navlink {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 12vh;
+  text-align: center;
+}
+
+.app-navbar a:hover,
+.app-navbar-navlink:hover{
+  background: #282c37;
+  color: #9baec8;
+}
+
+.app-navbar-navimg {
+  display: block;
+  float: left;
+  width: 30%;
+  height: 4vh;
+  margin: 2vh 35% 1.5vh 35%;
+  border: none;
+}
+
+.app-navbar-navtitle {
+  display: block;
+  float: left;
+  width: 100%;
+  font-size: 1.5vh;
+}
+
+.app-by {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 7vw;
+  margin-bottom: 0.5vh;
+  text-align: center;
+  font-size: 1.1vh;
+}
+
+.dropdown {
+  list-style-type: none;
+}
+
+.dropdown-toggle {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.app-navbar-usermenu {
+  position: absolute;
+  display: block;
+  bottom: 15vh;
+  width: 7vw;
+  height: 10vh;
+}
+
+.app-navbar-usermenu-title {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  position: relative !important;
+  width: 100%;
+  min-width: 100%;
+  background: #282c37;
+  padding: 0;
+}
+
+.dropdown-menu:hover {
+  color: #3097D1 !important;
+  background-color: #303540 !important;
+}
+
+.dropdown-menu > li {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background: #303540;
+}
+
+.dropdown-menu > li > a {
+  color: #9baec8 !important;
+  background: #303540 !important;
+}

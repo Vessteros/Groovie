@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('auth-block', require('./components/accounts/AccountAuthBlock'));
+Vue.component('vk-auth-block', require('./components/accounts/VkBlock'));
+Vue.component('vk-authorized', require('./components/accounts/VkAuthorized'));
 
 const app = new Vue({
     el: '#app'
