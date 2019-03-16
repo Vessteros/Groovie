@@ -65,6 +65,7 @@ class AccountsController extends Controller
         $networkApi = (string)$request->get('networkId');
         $apiUserToken = (string)$request->get('apiUserToken');
 
+        var_dump($request->toArray()); die;
         try {
             $apiModel = new ApiModel($networkApi);
             $accessToken = $apiModel
@@ -96,9 +97,25 @@ class AccountsController extends Controller
 
     /**
      * @param Request $request
+     *
+     * @return string
      */
     public function check(Request $request)
     {
+        $networkApi = (string)$request->get('networkId');
 
+        try {
+            $apiModel = new ApiModel($networkApi);
+            $accessToken = $apiModel
+                ->getApiUserToken();
+
+            $api = ApiChooserFactory::getApi($networkApi);
+
+            $data = $api->getProfileInfo($accessToken);
+        } catch (\Throwable $t) {
+            return $t->getMessage();
+        }
+
+        return $data;
     }
 }

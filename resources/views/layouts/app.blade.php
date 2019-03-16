@@ -24,12 +24,12 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <a class="app-navbar-navlink" href="{{ route('login') }}">
-                        <img href="" class="app-navbar-navimg">
+                        <img src="{{ asset('resources/img/login.png') }}" class="app-navbar-navimg">
                         <div class="app-navbar-navtitle">Войти</div>
                     </a>
                     <a class="app-navbar-navlink" href="{{ route('register') }}">
-                        <img href="" class="app-navbar-navimg">
-                        <div class="app-navbar-navtitle">Зарегестрироваться</div>
+                        <img src="{{ asset('resources/img/register.png') }}" class="app-navbar-navimg">
+                        <div class="app-navbar-navtitle">Регистрация</div>
                     </a>
                 @else
                     <a class="app-navbar-navlink" href="{{ route('accounts') }}">

@@ -121,7 +121,7 @@ class VkApi implements NetworkApiInstance
      */
     public function getProfileInfo(string $accessToken)
     {
-        return $this
+        return (array)$this
             ->_instance
             ->account()
             ->getProfileInfo($accessToken, []);

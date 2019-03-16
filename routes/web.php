@@ -22,6 +22,6 @@ Route::get('/accounts', 'AccountsController@index')->name('accounts');
 
 # методы для работы с блоком авторизации
 Route::post('/account/auth', 'AccountsController@auth');
-Route::get('/account/auth/check', 'AccountsController@check');
+Route::post('/account/auth/check', 'AccountsController@check');
 Route::get('/account/vk/authorized', 'AccountsController@authorizedIndex');
 Route::post('/account/authorized/set', 'AccountsController@setAuthorized');

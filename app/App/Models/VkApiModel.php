@@ -13,6 +13,11 @@ final class VkApiModel
     private $networkId;
 
     /**
+     * @var VkApiRepository
+     */
+    private $repository;
+
+    /**
      * VkApiModel constructor.
      *
      * @param string $networkId
@@ -20,6 +25,7 @@ final class VkApiModel
     public function __construct(string $networkId)
     {
         $this->networkId = $networkId;
+        $this->repository = new VkApiRepository;
     }
 
     /**
@@ -34,9 +40,8 @@ final class VkApiModel
             throw new \Exception('Не были переданы значения параметров `code` / `state` / `apiUserId` / `expiresIn`');
         }
 
-        $repository = new VkApiRepository;
-
-        $repository
+        $this
+            ->repository
             ->bindUserApi(
                 $apiUserToken,
                 $this->networkId
@@ -50,9 +55,8 @@ final class VkApiModel
      */
     public function getApiUserToken(): string
     {
-        $repository = new VkApiRepository;
-
-        return $repository
+        return $this
+            ->repository
             ->getAccessToken($this->networkId);
     }
 }
