@@ -145,7 +145,7 @@
         float: left;
         width: 15.1vw;
         height: 4.5vw;
-        background-image: url("../../../../../img/landing/screen1/google_play2.png");
+        background-image: url("../../../../../img/landing/screen1/google_play.png");
         background-size: cover;
         margin-top: 1vw;
     }
