@@ -32,13 +32,9 @@
                         <div class="app-navbar-navtitle">Регистрация</div>
                     </a>
                 @else
-                    <a class="app-navbar-navlink" href="{{ route('accounts') }}">
+                    <a class="app-navbar-navlink" href="{{ route('home') }}">
                         <img src="{{ asset('resources/img/auth.png') }}" class="app-navbar-navimg">
                         <div class="app-navbar-navtitle">Аккаунты</div>
-                    </a>
-                    <a class="app-navbar-navlink">
-                        <img src="{{ asset('resources/img/chats.png') }}" class="app-navbar-navimg">
-                        <div class="app-navbar-navtitle">Диалоги</div>
                     </a>
                     <a class="app-navbar-navlink">
                         <img src="{{ asset('resources/img/FAQ.png') }}" class="app-navbar-navimg">

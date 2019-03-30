@@ -10,13 +10,14 @@ use Illuminate\View\View;
 
 class IndexController extends Controller
 {
+
     /**
      * @return RedirectResponse|Redirector|View
      */
     public function index()
     {
         if (Auth::check()) {
-            return redirect('/accounts');
+            return redirect('/home');
         } else {
             return view('index');
         }

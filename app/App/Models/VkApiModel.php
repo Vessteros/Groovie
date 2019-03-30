@@ -55,8 +55,10 @@ final class VkApiModel
      */
     public function getApiUserToken(): string
     {
-        return $this
+        $accessToken = $this
             ->repository
             ->getAccessToken($this->networkId);
+
+        return isset($accessToken) ? $accessToken->access_token : '';
     }
 }

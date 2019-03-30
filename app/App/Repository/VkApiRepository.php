@@ -32,15 +32,16 @@ class VkApiRepository extends Repository
     /**
      * @param string $networkId
      *
-     * @return string
+     * @return mixed
      */
-    public function getAccessToken(string $networkId): string
+    public function getAccessToken(string $networkId)
     {
-        return DB::table(UserApiRepository::TABLE_NAME)
+        $result =  DB::table(UserApiRepository::TABLE_NAME)
             ->where('user_id', '=', Auth::id())
             ->where('network_id', '=', $networkId)
             ->select('access_token')
-            ->first()
-            ->access_token;
+            ->first();
+
+        return $result;
     }
 }

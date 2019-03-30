@@ -25,3 +25,6 @@ Route::post('/account/auth', 'AccountsController@auth');
 Route::post('/account/auth/check', 'AccountsController@check');
 Route::get('/account/vk/authorized', 'AccountsController@authorizedIndex');
 Route::post('/account/authorized/set', 'AccountsController@setAuthorized');
+
+# new
+Route::get('/home', 'AccountsController@home')->name('home');

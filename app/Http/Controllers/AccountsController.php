@@ -35,6 +35,11 @@ class AccountsController extends Controller
         );
     }
 
+    public function home()
+    {
+        return view('app.home.home');
+    }
+
     /**
      * @param Request $request
      * @return string
@@ -56,23 +61,23 @@ class AccountsController extends Controller
     }
 
     /**
+     * @link /account/authorized/set
      * @param Request $request
      * @return array|bool|\Illuminate\Contracts\View\Factory|View
      * @throws \Exception
      */
     public function setAuthorized(Request $request)
     {
-        $networkApi = (string)$request->get('networkId');
+        $networkId = (string)$request->get('networkId');
         $apiUserToken = (string)$request->get('apiUserToken');
 
-        var_dump($request->toArray()); die;
         try {
-            $apiModel = new ApiModel($networkApi);
+            $apiModel = new ApiModel($networkId);
             $accessToken = $apiModel
                 ->bindUserApi($apiUserToken)
                 ->getApiUserToken();
 
-            $api = ApiChooserFactory::getApi($networkApi);
+            $api = ApiChooserFactory::getApi($networkId);
 
             $data = $api->getProfileInfo($accessToken);
         } catch (\Throwable $t) {
@@ -96,22 +101,46 @@ class AccountsController extends Controller
     }
 
     /**
+     * @link /account/auth/check
      * @param Request $request
      *
-     * @return string
+     * @return array|string
      */
     public function check(Request $request)
     {
-        $networkApi = (string)$request->get('networkId');
+        // $data = [
+        //     'phone' => '79683721934', // Телефон получателя
+        //     'body' => 'Тестовая запись', // Сообщение
+        // ];
+        // $json = json_encode($data); // Закодируем данные в JSON
+        //
+        // // URL для запроса POST /message
+        // $url = 'https://eu16.chat-api.com/instance31124/message?token=s555s3nwnibksjg9';
+        // // Сформируем контекст обычного POST-запроса
+        // $options = stream_context_create(['http' => [
+        //     'method'  => 'POST',
+        //     'header'  => 'Content-type: application/json',
+        //     'content' => $json
+        // ]
+        // ]);
+        // // Отправим запрос
+        // $result = file_get_contents($url, false, $options);
+        // var_dump($result); die;
+        // return $result;
+        $data = [];
+
+        $networkId = (string)$request->get('networkId');
 
         try {
-            $apiModel = new ApiModel($networkApi);
+            $apiModel = new ApiModel($networkId);
             $accessToken = $apiModel
                 ->getApiUserToken();
 
-            $api = ApiChooserFactory::getApi($networkApi);
+            $api = ApiChooserFactory::getApi($networkId);
 
-            $data = $api->getProfileInfo($accessToken);
+            if ($accessToken !== '') {
+                $data = $api->getProfileInfo($accessToken);
+            }
         } catch (\Throwable $t) {
             return $t->getMessage();
         }
