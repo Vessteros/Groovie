@@ -1,0 +1,36 @@
+.screen-block {
+  display: block;
+  float: left;
+  width: 100vw;
+  height: 100vh;
+  background-color: #282c37;
+}
+
+.screen-1 {
+  border-bottom: 0.5vh rgba(155, 174, 200, 0.8) solid;
+}
+
+.screen-2, .screen-4{
+  background: transparent !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.screen-logo {
+  display: block;
+  position:absolute;
+  bottom: -3vw;
+  width: 6vw;
+  height: 6vw;
+  background: #282c37;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 0.5vh rgba(155, 174, 200, 0.8) solid;
+  left: 47vw;
+  font-size: 3.5vw;
+  text-align: center;
+  font-family: Arial, Serif;
+  cursor: grab;
+}

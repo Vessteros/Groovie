@@ -26,16 +26,50 @@
 // Home
 @import "app/home/home";
 
-body {
-  background: #282c37;
-  color: #9baec8;
-  overflow: hidden;
-}
-a {
-  cursor: pointer !important;
+// Шрифты
+@import "landing/fonts";
+
+@font-face {
+  font-family: WorkSans-Thin;
+  src: url(../../fonts/WorkSans/WorkSans-Thin.ttf);
 }
 
-a:hover {
-  text-decoration: none !important;
-  //color: #9baec8 !important;
+body {
+  //background: #282c37;
+  color: #9baec8;
+  overflow-x: hidden;
+  //font-family: WorkSans-Thin, serif;
 }
+
+body::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar {
+  width: 0.1px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #303540;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+  background: #9baec8;
+}
+//a {
+//  cursor: pointer !important;
+//}
+//
+//a:hover {
+//  text-decoration: none !important;
+//  //color: #9baec8 !important;
+//}
+
+// LANDING!
+
+// Навигационное меню
+@import "landing/land/nav_bar";
+
+// Стили блока экрана
+@import "landing/land/screen";

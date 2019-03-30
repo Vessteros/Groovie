@@ -1,0 +1,23 @@
+.land-header {
+  height: 5.5vh;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.land-header-a {
+  height: 4.5vh;
+  font-size: 1.7vh;
+  padding-top: 1.5vh;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  color: rgba(155, 174, 200, 0.8);
+}
+
+.land-header-a:hover {
+  color: #fff;
+  text-decoration: none;
+}

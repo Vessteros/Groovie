@@ -11,15 +11,20 @@ use Illuminate\View\View;
 class IndexController extends Controller
 {
 
-    /**
-     * @return RedirectResponse|Redirector|View
-     */
-    public function index()
+    // /**
+    //  * @return RedirectResponse|Redirector|View
+    //  */
+    // public function index()
+    // {
+    //     if (Auth::check()) {
+    //         return redirect('/home');
+    //     } else {
+    //         return view('index');
+    //     }
+    // }
+
+    public function indexAction()
     {
-        if (Auth::check()) {
-            return redirect('/home');
-        } else {
-            return view('index');
-        }
+        return view('index');
     }
 }
