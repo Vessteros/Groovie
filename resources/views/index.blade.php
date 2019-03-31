@@ -6,8 +6,10 @@
     </div>
     <div class="screen-block screen-2" data-parallax="scroll"
          data-image-src="{{ asset('resources/img/landing/parallax/forest.jpg') }}">
-
-        <div class="screen-logo"><div >G</div></div>
+        <second-screen></second-screen>
+        <div class="screen-logo">
+            <div>G</div>
+        </div>
     </div>
     <div class="screen-block screen-3">
 

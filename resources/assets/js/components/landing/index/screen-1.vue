@@ -6,21 +6,22 @@
             <div class="screen-1-title">Groovie</div>
             <div class="screen-1-info-block">
                 <div class="screen-1-subtitle">
-                    To make communication even easier is simply impossible.
+                    ...to make communication even easier is simply impossible.
                 </div>
                 <ul class="screen-1-ul">
-                    <li>&nbsp;&nbsp;Общайтесь с друзьями из разных социальных сетей в одном месте</li>
-                    <li>&nbsp;&nbsp;Забудьте об огромном количестве приложений на своем смартфоне</li>
-                    <li>&nbsp;&nbsp;Приложение, которое сделает вашу жизнь на много проще :)</li>
+                    <li>&nbsp;&nbsp;Chats with friends from different social networks in single place</li>
+                    <li>&nbsp;&nbsp;Forget about the huge number of applications on your smartphone</li>
+                    <li>&nbsp;&nbsp;An application that will make your life much easier :)</li>
                 </ul>
                 <div class="screen-1-form">
                     <a href="#">Login</a>
                     <a href="#">Register</a>
                 </div>
+                <hr class="screen-1-line">
                 <div class="screen-1-action">
                     <div class="screen-1-app"></div>
                     <div class="screen-1-app_info">
-                        Скачайте приложение "Groovie" в Google Play
+                        Download the Groovie app on Google Play
                     </div>
                 </div>
 
@@ -42,6 +43,7 @@
         width: 90vw;
         height: 84vh;
         margin: 5vh 5vw;
+        font-family: WorkSans-ExtraLight;
     }
 
     .screen-1-phone {
@@ -120,12 +122,12 @@
 
     .screen-1-form a {
         float: left;
-        width: 15vw;
-        height: 4vw;
+        width: 10vw;
+        height: 2.5vw;
         font-size: 1vw;
-        padding-top: 1vw;
+        padding-top: 0.3vw;
         display: block;
-        margin: 1vh 4.2vw 5vh 0;
+        margin: 1vh 3.1vw 5vh 3.1vw;
         text-align: center;
         border: 1px #9baec8 solid;
         border-radius: 5px;
@@ -140,6 +142,12 @@
         background-color: #9baec8;
     }
 
+    .screen-1-line {
+        float: left;
+        width: 85%;
+        border: 0.01vh #9baec8 solid;
+    }
+
     .screen-1-app {
         display: block;
         float: left;
@@ -147,7 +155,7 @@
         height: 4.5vw;
         background-image: url("../../../../../img/landing/screen1/google_play.png");
         background-size: cover;
-        margin-top: 1vw;
+        margin-top: 4vw;
     }
 
     .screen-1-action {
@@ -163,7 +171,7 @@
         width: 23vw;
         height: 4.5vw;
         padding: 1.5vw;
-        margin-top: 1vw;
+        margin-top: 4vw;
         font-size: 0.9vw;
     }
 </style>

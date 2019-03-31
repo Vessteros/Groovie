@@ -13,6 +13,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>--}}
+    <script src="http://vessteros.beget.tech/resources/assets/js/parallax.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +39,5 @@
 </div>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://vessteros.beget.tech/resources/assets/js/parallax.min.js"></script>
 </body>
 </html>

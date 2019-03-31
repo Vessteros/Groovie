@@ -30,6 +30,7 @@ Vue.component('fb-view', require('./components_app/home/FbView'));
  * LANDING!!!
  */
 Vue.component('first-screen', require('./components/landing/index/screen-1'));
+Vue.component('second-screen', require('./components/landing/index/screen-2'));
 
 const app = new Vue({
     el: '#app'
