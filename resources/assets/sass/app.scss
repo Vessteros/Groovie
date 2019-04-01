@@ -29,14 +29,9 @@
 // Шрифты
 @import "landing/fonts";
 
-@font-face {
-  font-family: WorkSans-Thin;
-  src: url(../../fonts/WorkSans/WorkSans-Thin.ttf);
-}
-
 body {
   //background: #282c37;
-  color: #9baec8;
+  color: #282c37;
   overflow-x: hidden;
   //font-family: WorkSans-Thin, serif;
 }

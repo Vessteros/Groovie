@@ -9,15 +9,15 @@
                     ...to make communication even easier is simply impossible.
                 </div>
                 <ul class="screen-1-ul">
-                    <li>&nbsp;&nbsp;Chats with friends from different social networks in single place</li>
-                    <li>&nbsp;&nbsp;Forget about the huge number of applications on your smartphone</li>
-                    <li>&nbsp;&nbsp;An application that will make your life much easier :)</li>
+                    <li>&nbsp;&nbsp;chat with every friend in a single place</li>
+                    <li>&nbsp;&nbsp;huge number of applications - forget</li>
+                    <li>&nbsp;&nbsp;the point is to make your communication easier</li>
                 </ul>
                 <div class="screen-1-form">
                     <a href="#">Login</a>
                     <a href="#">Register</a>
                 </div>
-                <hr class="screen-1-line">
+                <!--<hr class="screen-1-line">-->
                 <div class="screen-1-action">
                     <div class="screen-1-app"></div>
                     <div class="screen-1-app_info">
@@ -43,7 +43,7 @@
         width: 90vw;
         height: 84vh;
         margin: 5vh 5vw;
-        font-family: WorkSans-ExtraLight;
+        font-family: WorkSans-Light;
     }
 
     .screen-1-phone {
@@ -69,9 +69,9 @@
         float: left;
         width: 41vw;
         height: 6vh;
-        margin: 0;
+        margin: 0 0 1vw 0;
         padding-left: 1vw;
-        font-size: 2.6vw;
+        font-size: 3vw;
     }
 
     .screen-1-info-block {
@@ -81,14 +81,14 @@
         height: 31vw;
         margin: 0;
         padding: 2vh 1vw;
-        
+        font-family: WorkSans-Regular;
     }
 
     .screen-1-subtitle {
         display: block;
         float: left;
         width: 100%;
-        font-size: 1.3vw;
+        font-size: 1.2vw;
         padding: 0.5vh;
         
     }
@@ -97,7 +97,7 @@
         display: block;
         float: left;
         width: 100%;
-        font-size: 0.9vw;
+        font-size: 1.2vw;
         padding: 1vw;
     }
 
@@ -111,7 +111,7 @@
 
     .screen-1-ul li:before {
         content: ">   ";
-        color: #1cc48a;
+        color: #000000;
     }
 
     .screen-1-form {
@@ -125,27 +125,27 @@
         width: 10vw;
         height: 2.5vw;
         font-size: 1vw;
-        padding-top: 0.3vw;
+        padding-top: 0.4vw;
         display: block;
-        margin: 1vh 3.1vw 5vh 3.1vw;
+        margin: 1vh 2.5vw 3vh 0;
         text-align: center;
-        border: 1px #9baec8 solid;
-        border-radius: 5px;
+        border: 1px #282c37 solid;
+        border-radius: 0.2vw;
         text-decoration: none;
-        color: #9baec8;
+        color: #282c37;
         -webkit-box-shadow: 0 2px 5px rgba(155, 174, 200, 0.2);
         box-shadow: 0 2px 5px rgba(155, 174, 200, 0.2);
     }
 
     .screen-1-form a:hover {
-        color: #fff;
-        background-color: #9baec8;
+        color: #ffffff;
+        background-color: #282c37;
     }
 
     .screen-1-line {
         float: left;
         width: 85%;
-        border: 0.01vh #9baec8 solid;
+        border: 0.01vh #282c37 solid;
     }
 
     .screen-1-app {
@@ -155,7 +155,7 @@
         height: 4.5vw;
         background-image: url("../../../../../img/landing/screen1/google_play.png");
         background-size: cover;
-        margin-top: 4vw;
+        margin-top: 1vw;
     }
 
     .screen-1-action {
@@ -171,7 +171,7 @@
         width: 23vw;
         height: 4.5vw;
         padding: 1.5vw;
-        margin-top: 4vw;
+        margin-top: 1vw;
         font-size: 0.9vw;
     }
 </style>

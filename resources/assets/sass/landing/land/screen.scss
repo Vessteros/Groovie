@@ -3,14 +3,14 @@
   float: left;
   width: 100vw;
   height: 100vh;
-  background-color: #282c37;
+  background-color: #cde1fd;
 }
 
 .screen-1 {
-  border-bottom: 0.5vh rgba(155, 174, 200, 0.8) solid;
+  border-bottom: 0.5vh rgba(40, 44, 55, 0.8) solid;
 }
 
-.screen-2, .screen-4{
+.screen-3, .screen-5{
   background: transparent !important;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,8 +18,10 @@
 }
 
 .screen-2 {
-  height: 70vh;
-  border-bottom: 0.5vh rgba(155, 174, 200, 0.8) solid;
+  height: 37vw;
+  background: rgb(40, 44, 55);
+  border-bottom: 0.5vh rgba(205, 225, 253, 0.8) solid;
+  color: #cde1fd;
 }
 
 .screen-2-content {
@@ -31,11 +33,15 @@
 
 // Слайдер говна
 .container {
-  width: 900px;
-  margin: 0 auto;
+  display: block;
+  float: left;
+  width: 22vw;
+  margin: 7vw 7vw;
   max-width: 80%;
-  border-right: 1px black solid;
-  background: white;
+}
+
+.shadow {
+  box-shadow: 0 0.2vw 0.1vw rgba(195, 219, 233, 0.5);
 }
 
 .slick-slider {
@@ -44,10 +50,7 @@
 }
 
 .slick-list {
-  padding-top: 10% !important;
-  padding-bottom: 10% !important;
-  padding-left: 15% !important;
-  padding-right: 15% !important;
+  padding: 10% 15% !important;
 }
 
 .slick-dots {
@@ -75,11 +78,14 @@
   width: 100% !important;
   transform: translate3d(0, 0, 0);
   transition: transform 1s, opacity 1s;
+  outline: none;
 }
 
 .slick-snext,
 .slick-sprev {
   display: block;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .slick-current {
@@ -88,6 +94,7 @@
   display: block;
   transform: translate3d(0, 0, 20px);
   z-index: 2;
+  text-decoration: none;
 }
 
 .slick-snext {
@@ -104,8 +111,11 @@
 .slide-content {
   display: block;
   width: 100%;
-  height: 300px;
-  border: 1px black solid;
+  height: 17vw;
+  text-decoration: none;
+  -webkit-border-radius: 1vw;
+  -moz-border-radius: 1vw;
+  border-radius: 1vw;
 }
 
 // Конец слайдера говна
@@ -116,11 +126,12 @@
   bottom: -3vw;
   width: 6vw;
   height: 6vw;
-  background: #282c37;
+  background: #cde1fd;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 0.5vh rgba(155, 174, 200, 0.8) solid;
+  border: 0.5vh rgba(40, 44, 55, 0.8) solid;
+  color: #282C37;
   left: 47vw;
   font-size: 3.5vw;
   text-align: center;
