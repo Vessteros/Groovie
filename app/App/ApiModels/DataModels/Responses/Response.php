@@ -5,8 +5,8 @@ namespace App\App\ApiModels\DataModels\Responses;
 /**
  * Class Response
  *
- * @property SuccessResponse data
- * @property FailureResponse problem
+ * @property SuccessResponseInterface data
+ * @property FailureResponseInterface problem
  *
  * @package App\App\ApiModels\DataModels\Responses
  */

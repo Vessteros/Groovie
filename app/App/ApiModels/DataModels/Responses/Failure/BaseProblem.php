@@ -3,17 +3,13 @@
 namespace App\App\ApiModels\DataModels\Responses\Failure;
 
 
-use App\App\ApiModels\DataModels\Responses\FailureResponse;
+use App\App\ApiModels\DataModels\Responses\FailureResponseInterface;
 
-class BaseProblem implements FailureResponse
+/**
+ * @property string message
+ * @property int    line
+ * @property string file
+ */
+class BaseProblem implements FailureResponseInterface
 {
-    /**
-     * @var int
-     */
-    public $line;
-
-    /**
-     * @var string
-     */
-    public $message = 'Something went wrong';
 }

@@ -70,7 +70,7 @@ class Handler extends ExceptionHandler
         switch (true) {
             case $exception instanceof ApiException:
                 $response = new Response;
-                $problem = new BaseProblem();
+                $problem = new BaseProblem;
 
                 $response->code = $exception->getCode();
                 $response->status = 'failure';
@@ -78,22 +78,36 @@ class Handler extends ExceptionHandler
 
                 $problem->line = $exception->getLine();
                 $problem->message = $exception->getMessage();
+                $problem->file = $exception->getFile();
 
                 $return = Response($response, 418);
                 break;
 
             case $exception instanceof NotFoundHttpException:
                 $response = new Response;
-                $problem = new BaseProblem();
+                $problem = new BaseProblem;
 
                 $response->code = 404;
-                $response->status = 'failure';
+                $response->status = 'error';
                 $response->problem = $problem;
 
                 $problem->message = 'Страница не найдена';
 
                 $return = Response($response, 404);
                 break;
+
+            // case $exception instanceof Exception:
+            //     $response = new Response;
+            //     $problem = new BaseProblem;
+            //
+            //     $response->code = $exception->getCode();
+            //     $response->status = 'error';
+            //     $response->problem = $problem;
+            //
+            //     $problem->message = $exception->getMessage();
+            //
+            //     $return = Response($response, $exception->getCode());
+            //     break;
         }
 
         return $return;

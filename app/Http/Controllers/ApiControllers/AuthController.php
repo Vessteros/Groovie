@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\ApiControllers;
 
-use App\App\ApiModels\DataModels\Requests\AuthRequest;
+use \App\App\ApiModels\DataModels\Requests\Request;
 use App\App\ApiModels\DataModels\Responses\Response;
 use App\App\ApiModels\Models\UserModels\AuthModel;
 use App\Exceptions\AppExceptions\Api\ApiException;
 use App\Http\Controllers\Controller;
-use \Illuminate\Http\Request;
+use \Illuminate\Http\Request as HttpRequest;
 
 class AuthController extends Controller
 {
     /**
-     * @param Request $requestData
+     * @param HttpRequest $requestData
      *
      * @return array
      * @throws ApiException
      */
-    public function indexAction(Request $requestData)
+    public function indexAction(HttpRequest $requestData)
     {
         $requestData = $requestData->toArray();
 
         $model = new AuthModel;
-        $model->request = (new AuthRequest)->init($requestData);
+        $model->request = Request::parse($requestData);
         $model->response = new Response;
-        $model->getAuthDataOrFail();
+        $model->getDataOrFail();
 
         return (array)$model->response;
     }

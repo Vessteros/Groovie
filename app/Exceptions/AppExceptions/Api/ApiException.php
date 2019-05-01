@@ -15,6 +15,8 @@ class ApiException extends \Exception
 {
     public $codeList = [
         2001 => 'Missing #FIELD field value. Authorization is not possible.',
+        2002 => 'Request body not passed.',
+        2003 => 'User not found.',
     ];
 
     /**
@@ -24,7 +26,7 @@ class ApiException extends \Exception
      * @param array|null     $fields
      * @param Throwable|null $previous
      */
-    public function __construct(int $code = 0, array $fields = null, Throwable $previous = null)
+    public function __construct(int $code = 0, array $fields = [], Throwable $previous = null)
     {
         $message = $this->prepareMessage($code, $fields);
 
@@ -37,7 +39,7 @@ class ApiException extends \Exception
      *
      * @return string
      */
-    private function prepareMessage(int $code = 0, array $fields = null): string
+    private function prepareMessage(int $code = 0, array $fields = []): string
     {
         $message = $this->codeList[$code];
 

@@ -3,9 +3,9 @@
 namespace App\App\ApiModels\DataModels\Responses\Success;
 
 
-use App\App\ApiModels\DataModels\Responses\SuccessResponse;
+use App\App\ApiModels\DataModels\Responses\SuccessResponseInterface;
 
-class AuthResponse implements SuccessResponse
+class AuthResponse implements SuccessResponseInterface
 {
     /**
      * @var int

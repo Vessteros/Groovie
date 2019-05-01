@@ -5,7 +5,7 @@ namespace App\App\ApiModels\DataModels\Requests;
 
 use App\Exceptions\AppExceptions\Api\ApiException;
 
-class AuthRequest
+class AuthRequest implements RequestDataInterface
 {
     /**
      * @var string
@@ -18,24 +18,26 @@ class AuthRequest
     public $password;
 
     /**
-     * @param array $request
+     * @param array $data
      *
      * @return AuthRequest
      * @throws ApiException
      */
-    public function init(array $request): self
+    public static function parse(array $data): self
     {
-        if (!isset($request['login'])) {
+        $instance = new self;
+
+        if (!isset($data['login'])) {
             throw new ApiException(2001, ['#FIELD' => '`login`']);
         }
 
-        if (!isset($request['password'])) {
+        if (!isset($data['password'])) {
             throw new ApiException(2001, ['#FIELD' => '`password`']);
         }
 
-        $this->login = $request['login'];
-        $this->password = $request['password'];
+        $instance->login = $data['login'];
+        $instance->password = $data['password'];
 
-        return $this;
+        return $instance;
     }
 }
