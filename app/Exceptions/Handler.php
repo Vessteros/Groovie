@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use App\App\ApiModels\DataModels\Responses\Failure\BaseProblem;
+use App\App\ApiModels\DataModels\Responses\Response;
 use App\Exceptions\AppExceptions\Api\ApiException;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
@@ -67,28 +69,30 @@ class Handler extends ExceptionHandler
 
         switch (true) {
             case $exception instanceof ApiException:
-                $response = [
-                    'code'    => $exception->getCode(),
-                    'status'  => 'failure',
-                    'problem' => [
-                        'line'    => $exception->getLine(),
-                        'message' => $exception->getMessage(),
-                    ],
-                ];
+                $response = new Response;
+                $problem = new BaseProblem();
 
-                $return = Response(json_encode($response, JSON_UNESCAPED_UNICODE), 418);
+                $response->code = $exception->getCode();
+                $response->status = 'failure';
+                $response->problem = $problem;
+
+                $problem->line = $exception->getLine();
+                $problem->message = $exception->getMessage();
+
+                $return = Response($response, 418);
                 break;
 
             case $exception instanceof NotFoundHttpException:
-                $response = [
-                    'code'    => 404,
-                    'status'  => 'failure',
-                    'problem' => [
-                        'message' => 'Страница не найдена',
-                    ],
-                ];
+                $response = new Response;
+                $problem = new BaseProblem();
 
-                $return = Response(json_encode($response, JSON_UNESCAPED_UNICODE), 404);
+                $response->code = 404;
+                $response->status = 'failure';
+                $response->problem = $problem;
+
+                $problem->message = 'Страница не найдена';
+
+                $return = Response($response, 404);
                 break;
         }
 

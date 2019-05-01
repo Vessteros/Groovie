@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers\ApiControllers;
 
+use App\App\ApiModels\DataModels\Requests\AuthRequest;
+use App\App\ApiModels\DataModels\Responses\Response;
+use App\App\ApiModels\Models\UserModels\AuthModel;
 use App\Exceptions\AppExceptions\Api\ApiException;
 use App\Http\Controllers\Controller;
 use \Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function indexAction(Request $request)
+    /**
+     * @param Request $requestData
+     *
+     * @return array
+     * @throws ApiException
+     */
+    public function indexAction(Request $requestData)
     {
-        $request = $request->toArray();
+        $requestData = $requestData->toArray();
 
-        if (!isset($request['login'])) {
-            throw new ApiException(2001, ['#FIELD' => '`login`']);
-        }
+        $model = new AuthModel;
+        $model->request = (new AuthRequest)->init($requestData);
+        $model->response = new Response;
+        $model->getAuthDataOrFail();
 
-        if (!isset($request['password'])) {
-            throw new ApiException(2001, ['#FIELD' => '`password`']);
-        }
-
-        return [
-            'code'   => 123132,
-            'status' => 'success',
-            'data'   => [
-                'id'    => 1,
-                'token' => '123213dsad',
-            ],
-        ];
+        return (array)$model->response;
     }
 }
