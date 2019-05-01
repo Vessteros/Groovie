@@ -2,9 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Exceptions\AppExceptions\Api\ApiException;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -27,8 +29,10 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
+     *
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
@@ -38,20 +42,65 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception               $exception
+     *
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        $customException = $this->customExceptionRender($exception);
+
+        return is_null($customException)
+            ? parent::render($request, $exception)
+            : $customException;
+    }
+
+    /**
+     * @param Exception $exception
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response|null
+     */
+    private function customExceptionRender(Exception $exception)
+    {
+        $return = null;
+
+        switch (true) {
+            case $exception instanceof ApiException:
+                $response = [
+                    'code'    => $exception->getCode(),
+                    'status'  => 'failure',
+                    'problem' => [
+                        'line'    => $exception->getLine(),
+                        'message' => $exception->getMessage(),
+                    ],
+                ];
+
+                $return = Response(json_encode($response, JSON_UNESCAPED_UNICODE), 418);
+                break;
+
+            case $exception instanceof NotFoundHttpException:
+                $response = [
+                    'code'    => 404,
+                    'status'  => 'failure',
+                    'problem' => [
+                        'message' => 'Страница не найдена',
+                    ],
+                ];
+
+                $return = Response(json_encode($response, JSON_UNESCAPED_UNICODE), 404);
+                break;
+        }
+
+        return $return;
     }
 
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @param  \Illuminate\Http\Request                 $request
+     * @param  \Illuminate\Auth\AuthenticationException $exception
+     *
      * @return \Illuminate\Http\Response
      */
     protected function unauthenticated($request, AuthenticationException $exception)

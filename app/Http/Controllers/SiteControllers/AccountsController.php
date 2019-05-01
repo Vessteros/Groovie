@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SiteControllers;
 
 use App\App\Helpers\ControllerHelper;
 use App\App\Models\ApiModel;
 use App\App\NetworkApi\ApiChooserFactory;
+use App\Http\Controllers\Controller;
 use \Illuminate\View\View;
 use \Illuminate\Http\Request;
 
