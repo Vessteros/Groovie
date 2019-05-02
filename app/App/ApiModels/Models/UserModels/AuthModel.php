@@ -2,24 +2,14 @@
 
 namespace App\App\ApiModels\Models\UserModels;
 
-use App\App\ApiModels\DataModels\Requests\Request;
-use App\App\ApiModels\DataModels\Responses\Response;
 use App\App\ApiModels\DataModels\Responses\Success\AuthResponse;
+use App\App\ApiModels\Models\BaseModel;
 use App\App\ApiModels\Repositories\UserRepos\UserRepository;
 use App\Exceptions\AppExceptions\Api\ApiException;
+use Illuminate\Support\Facades\Hash;
 
-class AuthModel
+class AuthModel extends BaseModel
 {
-    /**
-     * @var Request
-     */
-    public $request;
-
-    /**
-     * @var Response
-     */
-    public $response;
-
     /**
      * Получение данных авторизации
      *
@@ -32,14 +22,13 @@ class AuthModel
         $where = [
             // не отображаются, потому что типом переменной используется интерфейс
             'email'    => $this->request->data->login,
-            'password' => $this->request->data->password,
         ];
 
         $userData = (array)$userRepo
             ->get($where)
             ->first();
 
-        if (!isset($userData['id'])) {
+        if (!Hash::check($this->request->data->password, $userData['password'])) {
             throw new ApiException(2003);
         }
 

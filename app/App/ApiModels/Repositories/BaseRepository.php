@@ -35,12 +35,27 @@ class BaseRepository
                         $valueList[] = $value;
                     }
                 }
-                $query->whereIn($key, $valueList);
+
+                if (!empty($valueList)) {
+                    $query->whereIn($key, $valueList);
+                }
             } else {
                 $query->where($key, $value);
             }
         }
 
         return $query->select($select)->get();
+    }
+
+    /**
+     * @param array $insert
+     *
+     * @return mixed
+     */
+    public function insert(array $insert)
+    {
+        $query = DB::table(static::TABLE_NAME);
+
+        return $query->insertGetId($insert);
     }
 }

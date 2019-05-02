@@ -13,6 +13,7 @@ use App\Exceptions\AppExceptions\Api\ApiException;
  */
 class Request
 {
+    const DATA_MODELS_REFER = '\App\App\ApiModels\DataModels\Requests\\';
     /**
      * @var ServiceInfo
      */
@@ -24,12 +25,14 @@ class Request
     public $data;
 
     /**
-     * @param array $data
+     * @param array  $data
+     *
+     * @param string $dataRequest
      *
      * @return Request
      * @throws ApiException
      */
-    public static function parse(array $data): self
+    public static function parse(array $data, string $dataRequest): self
     {
         $instance = new self;
 
@@ -41,7 +44,9 @@ class Request
             throw new ApiException(2002);
         }
 
-        $instance->data = AuthRequest::parse($data['data']);
+        $refer = self::DATA_MODELS_REFER;
+        $dataModel = "{$refer}{$dataRequest}Data";
+        $instance->data = $dataModel::parse($data['data']);
 
         return $instance;
     }

@@ -23,3 +23,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/auth', getMethod('Auth', 'index'));
+Route::post('/register', getMethod('Register', 'index'));
