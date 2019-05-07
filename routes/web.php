@@ -30,4 +30,4 @@ Auth::routes();
 
 # LANDING!!!
 
-Route::get('/', 'IndexController@indexAction')->name('/');
+Route::get('/', 'SiteControllers\IndexController@indexAction')->name('/');

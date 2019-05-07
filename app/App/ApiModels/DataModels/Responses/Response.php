@@ -7,6 +7,7 @@ namespace App\App\ApiModels\DataModels\Responses;
  *
  * @property SuccessResponseInterface data
  * @property FailureResponseInterface problem
+ * @property mixed meh
  *
  * @package App\App\ApiModels\DataModels\Responses
  */

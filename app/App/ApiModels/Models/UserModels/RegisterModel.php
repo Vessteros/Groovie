@@ -13,17 +13,23 @@ use Illuminate\Support\Facades\Hash;
 class RegisterModel extends BaseModel
 {
     /**
-     * @return mixed|void
+     * @return void
      * @throws ApiException
      */
     public function getDataOrFail()
     {
         $userRepo = new UserRepository;
+        
+        $data = $this->request->data;
+
+        if ($data->password !== $data->rePass) {
+            throw new ApiException(2005);
+        }
 
         $insert = [
-            'name'           => '',
-            'email'          => $this->request->data->login,
-            'password'       => Hash::make($this->request->data->password),
+            'name'           => $data->name . ' ' . $data->sname,
+            'email'          => $data->login,
+            'password'       => Hash::make($data->password),
             'remember_token' => str_random(60),
         ];
 

@@ -32,6 +32,8 @@ Vue.component('fb-view', require('./components_app/home/FbView'));
 Vue.component('first-screen', require('./components/landing/index/screen-1'));
 Vue.component('second-screen', require('./components/landing/index/screen-2'));
 
+Vue.component('auth-section', require('./components/landing/index/auth-form'));
+
 const app = new Vue({
     el: '#app'
 });

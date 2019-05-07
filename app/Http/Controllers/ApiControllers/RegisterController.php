@@ -11,6 +11,12 @@ use \Illuminate\Http\Request as HttpRequest;
 
 class RegisterController extends Controller
 {
+    /**
+     * @param HttpRequest $requestData
+     *
+     * @return array
+     * @throws \App\Exceptions\AppExceptions\Api\ApiException
+     */
     public function indexAction(HttpRequest $requestData)
     {
         $requestData = $requestData->toArray();

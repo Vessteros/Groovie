@@ -18,6 +18,7 @@ class ApiException extends \Exception
         2002 => 'Request body not passed.',
         2003 => 'User not found.',
         2004 => 'Such user already exists.',
+        2005 => 'Register passwords are not equal.',
     ];
 
     /**

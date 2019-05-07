@@ -23,6 +23,16 @@ class RegisterData implements RequestDataInterface
     public $rePass;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $sname;
+
+    /**
      * @param array $data
      *
      * @return RegisterData
@@ -32,15 +42,21 @@ class RegisterData implements RequestDataInterface
     {
         $instance = new self;
 
-        foreach ($instance as $key => $value) {
-            if (!isset($data[$key])) {
-                throw new ApiException(2001, ['#FIELD' => "`$key`"]);
-            }
+        foreach ($data as $key => $value) {
+            $instance->{$key} = $value ?? '';
         }
 
-        $instance->login = $data['login'];
-        $instance->password = $data['password'];
-        $instance->rePass = $data['rePass'];
+        if (empty($instance->login)) {
+            throw new ApiException(2001, ['#FIELD' => "`login`"]);
+        }
+
+        if (empty($instance->password)) {
+            throw new ApiException(2001, ['#FIELD' => "`password`"]);
+        }
+
+        if (empty($instance->rePass)) {
+            throw new ApiException(2001, ['#FIELD' => "`rePass`"]);
+        }
 
         return $instance;
     }
