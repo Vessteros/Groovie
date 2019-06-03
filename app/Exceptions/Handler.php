@@ -80,7 +80,7 @@ class Handler extends ExceptionHandler
                 $problem->message = $exception->getMessage();
                 $problem->file = $exception->getFile();
 
-                $return = Response($response, 200);
+                $return = Response($response, 400);
                 break;
 
             case $exception instanceof NotFoundHttpException:

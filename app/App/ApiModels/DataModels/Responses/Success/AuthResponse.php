@@ -16,4 +16,12 @@ class AuthResponse implements SuccessResponseInterface
      * @var string
      */
     public $token;
+
+    public $name;
+
+    public $login;
+
+    public $password;
+
+    public $lastName;
 }

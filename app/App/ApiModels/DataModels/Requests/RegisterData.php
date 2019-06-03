@@ -15,6 +15,17 @@ class RegisterData implements RequestDataInterface
     /**
      * @var string
      */
+    public $name;
+
+    public $lastName;
+
+    public $secondName;
+
+    public $email;
+
+    /**
+     * @var string
+     */
     public $password;
 
     /**
@@ -22,15 +33,7 @@ class RegisterData implements RequestDataInterface
      */
     public $rePass;
 
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $sname;
+    public $photoUrl;
 
     /**
      * @param array $data

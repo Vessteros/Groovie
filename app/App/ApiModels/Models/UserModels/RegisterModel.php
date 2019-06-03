@@ -19,7 +19,7 @@ class RegisterModel extends BaseModel
     public function getDataOrFail()
     {
         $userRepo = new UserRepository;
-        
+
         $data = $this->request->data;
 
         if ($data->password !== $data->rePass) {
@@ -27,21 +27,26 @@ class RegisterModel extends BaseModel
         }
 
         $insert = [
-            'name'           => $data->name . ' ' . $data->sname,
+            'name'           => $data->name ?? '',
+            'lastName'       => $data->lastName ?? '',
+            'secondName'     => $data->secondName ?? '',
             'email'          => $data->login,
             'password'       => Hash::make($data->password),
             'remember_token' => str_random(60),
+            'photoUrl'       => $data->photoUrl,
         ];
 
         $data = new AuthResponse;
 
         try {
-            $userData = (array)$userRepo
+            $user = (array)$userRepo
                 ->get(['id' => $userRepo->insert($insert)])
                 ->first();
 
-            $data->id = $userData['id'];
-            $data->token = $userData['remember_token'];
+            $data->id = $user['id'];
+            $data->token = $user['remember_token'];
+            $data->login = $user['email'];
+            $data->password = $user['password'];
         } catch (QueryException $e) {
             throw new ApiException(2004);
         }

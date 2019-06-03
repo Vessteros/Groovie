@@ -24,3 +24,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/auth', getMethod('Auth', 'index'));
 Route::post('/register', getMethod('Register', 'index'));
+Route::post('/user/check/password', getMethod('Profile', 'checkPassword'));
+Route::post('/user/profile/update', getMethod('Profile', 'saveProfileChanges'));
+Route::post('/user/network_token/set', getMethod('Profile', 'setNetworkAccessToken'));
+Route::post('/user/network_token/get', getMethod('Profile', 'getNetworkAccessToken'));
+
+Route::get('/user/{id}/get', getMethod('Profile', 'userGet'));
+Route::get('/user/network_list', getMethod('Profile', 'getConnectedNetworks'));

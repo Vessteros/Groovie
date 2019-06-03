@@ -610,11 +610,9 @@
 
                             <img src="http://placehold.it/200x200" alt="testimonials" class="testim-img">
 
-                            <p>The attention of a traveller, should be particularly turned, in the first place, to the
-                                various works of Nature, to mark the distinctions of the climates he may explore, and to
-                                offer such useful observations on the different productions as may occur.</p>
+                            <p>Отзыв 1</p>
 
-                            <h6>Jennifer Smith<span class="job-text"> - Web Designer</span></h6>
+                            <h6>Человек 1<span class="job-text"> - 123</span></h6>
 
                         </div>
 
@@ -623,11 +621,9 @@
 
                             <img src="http://placehold.it/200x200" alt="testimonials" class="testim-img">
 
-                            <p>The attention of a traveller, should be particularly turned, in the first place, to the
-                                various works of Nature, to mark the distinctions of the climates he may explore, and to
-                                offer such useful observations on the different productions as may occur.</p>
+                            <p>Отзыв 2</p>
 
-                            <h6>John Doe<span class="job-text"> -  General Manager</span></h6>
+                            <h6>Человек 2<span class="job-text"> -  123</span></h6>
 
                         </div>
 
@@ -636,11 +632,9 @@
 
                             <img src="http://placehold.it/200x200" alt="testimonials" class="testim-img">
 
-                            <p>The attention of a traveller, should be particularly turned, in the first place, to the
-                                various works of Nature, to mark the distinctions of the climates he may explore, and to
-                                offer such useful observations on the different productions as may occur.</p>
+                            <p>Отзыв 3</p>
 
-                            <h6>Alexandra Smith<span class="job-text"> - App Magazine Editor</span></h6>
+                            <h6>Человек 3<span class="job-text"> - 123</span></h6>
 
                         </div>
 

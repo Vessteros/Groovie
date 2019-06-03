@@ -18,24 +18,49 @@ class AuthModel extends BaseModel
     public function getDataOrFail()
     {
         $userRepo = new UserRepository;
+        $data = new AuthResponse;
 
-        $where = [
-            // не отображаются, потому что типом переменной используется интерфейс
-            'email'    => $this->request->data->login,
+        list($login, $password) = [
+            $this->request->data->login,
+            $this->request->data->password,
         ];
 
-        $userData = (array)$userRepo
-            ->get($where)
-            ->first();
+        $user = $userRepo->getByEmail($login);
 
-        if (!Hash::check($this->request->data->password, $userData['password'])) {
+        $this->validate($user);
+
+        if (!Hash::check($password, $user['password'])) {
             throw new ApiException(2003);
         }
 
-        $data = new AuthResponse;
-        $data->id = $userData['id'];
-        $data->token = $userData['remember_token'];
+        $data->id = $user['id'];
+        $data->token = $user['remember_token'];
+        $data->login = $user['email'];
+        $data->password = $user['password'];
 
         $this->response->data = $data;
+    }
+
+    /**
+     * @param array $user
+     *
+     * @throws ApiException
+     */
+    private function validate(array $user) {
+        if (empty($user)) {
+            throw new ApiException(2003);
+        }
+
+        if (!isset($user['remember_token'])) {
+            throw new ApiException(2006);
+        }
+
+        if(!isset($user['email'])) {
+            throw new ApiException(2003);
+        }
+
+        if(!isset($user['password'])) {
+            throw new ApiException(2003);
+        }
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\App\ApiModels\DataModels\Requests;
 
-use App\Exceptions\AppExceptions\Api\ApiException;
-
 /**
  * Class Request
  *
@@ -30,7 +28,6 @@ class Request
      * @param string $dataRequest
      *
      * @return Request
-     * @throws ApiException
      */
     public static function parse(array $data, string $dataRequest): self
     {
@@ -40,13 +37,9 @@ class Request
             $instance->serviceInfo = ServiceInfo::parse($data['service']);
         }
 
-        if (!isset($data['data'])) {
-            throw new ApiException(2002);
-        }
-
         $refer = self::DATA_MODELS_REFER;
         $dataModel = "{$refer}{$dataRequest}Data";
-        $instance->data = $dataModel::parse($data['data']);
+        $instance->data = $dataModel::parse($data);
 
         return $instance;
     }

@@ -5,6 +5,8 @@ namespace App\App\ApiModels\DataModels\Requests;
 /**
  * Interface RequestInterface
  *
+ * @property string $remember_token
+ *
  * @package App\App\ApiModels\DataModels\Requests
  */
 interface RequestDataInterface
