@@ -8506,13 +8506,15 @@ button.close {
 
 .login-auth_container {
   display: block;
-  width: 45vw;
-  height: 35vh;
-  margin: 15vh auto auto auto;
-  background: #303540;
-  border-radius: 1vh;
-  -webkit-box-shadow: 0px 7px 12px 0px #9baec8;
-          box-shadow: 0px 7px 12px 0px #9baec8;
+  width: 35vw;
+  height: 30vh;
+  margin: 25vh auto auto auto;
+  background: white;
+  -moz-border-radius-topleft: 1vh;
+  -moz-border-radius-topright: 1vh;
+  -webkit-box-shadow: 0 0 5px #f7f7f7;
+          box-shadow: 0 0 5px #f7f7f7;
+  border: 1px black solid;
 }
 
 .login-auth_container a:hover {
@@ -8526,6 +8528,13 @@ button.close {
   font-size: 2vh;
   border-bottom: 0.1vh solid #9baec8;
   margin-bottom: 5vh;
+  background: black;
+  color: white;
+}
+
+.meeh {
+  font-weight: 100;
+  margin-left: 0.7vw;
 }
 
 .auth-block {
@@ -8876,5 +8885,62 @@ body:hover::-webkit-scrollbar-thumb {
   font-family: Arial, Serif;
   cursor: -webkit-grab;
   cursor: grab;
+}
+
+#admin_header {
+  display: block;
+  float: left;
+  width: 100vw;
+  height: 7vh;
+  background-color: black;
+  color: #fff;
+  padding-right: 2vw;
+  text-align: right;
+}
+
+#admin_body {
+  display: block;
+  float: left;
+  width: 100vw;
+  height: 93vh;
+}
+
+#admin_menu {
+  display: block;
+  float: left;
+  width: 15vw;
+  height: 100%;
+  background-color: black;
+}
+
+#admin_menu a {
+  display: block;
+  float: left;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  height: 10vh;
+  padding: 3.5vh 0 2vh 0;
+  font-size: 1vw;
+  font-family: Raleway, sans-serif;
+  text-decoration: none;
+}
+
+#admin_menu a:hover {
+  background-color: white;
+  color: black;
+}
+
+.menu_item_selected {
+  background-color: white !important;
+  color: black !important;
+}
+
+#admin_content {
+  display: block;
+  float: left;
+  width: 85vw;
+  height: 100%;
 }
 

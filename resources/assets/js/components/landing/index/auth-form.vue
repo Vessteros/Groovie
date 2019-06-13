@@ -1,38 +1,39 @@
 <template>
-    <div>
+    <div id="meh_block_form">
         <section class="section-white no-padding-bottom" id="contact">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <h4>Присоединяйтесь прямо сейчас</h4>
-                        <p class="contact_fail_box" v-if="isErr" style="display:none;">{{ error }}</p>
+                        <p class="contact_fail_box" v-if="isErr">{{ error }}</p>
 
-                        <p class="contact_success_box" v-if="isReged" style="display:none;">Регистрация мастер-аккаунта
+                        <p class="contact_success_box" v-if="isReged">Регистрация мастер-аккаунта
                             прошла успешно.
                             Теперь вы с нами!</p>
 
                         <form id="contact-form" class="contact">
 
-                            <input class="contact-input white-input" required="" name="user_name"
+                            <input id="name" class="contact-input white-input" required="" name="user_name"
                                    placeholder="Ваше имя*" type="text" v-model="name" autocomplete="off">
 
-                            <input class="contact-input white-input" required="" name="user_sname"
-                                   placeholder="И фамилия*" type="text" v-model="sname" autocomplete="off">
+                            <input id="secondName" class="contact-input white-input" required="" name="user_secondName"
+                                   placeholder="И фамилия*" type="text" v-model="secondName" autocomplete="off">
 
-                            <input class="contact-input white-input" required="" name="user_email"
+                            <input id="login" class="contact-input white-input" required="" name="user_email"
                                    placeholder="Email адрес*" type="email" v-model="login" autocomplete="off">
 
-                            <input class="contact-input white-input" name="user_pass"
+                            <input id="password" class="contact-input white-input" name="user_pass"
                                    placeholder="Пароль*" type="password" v-model="password" autocomplete="off">
 
-                            <input class="contact-input white-input" name="user_pass"
+                            <input id="rePass" class="contact-input white-input" name="user_pass"
                                    placeholder="Пароль еще раз*" type="password" v-model="rePass" autocomplete="off">
 
-                            <input class="contact-input white-input" name="user_phone"
+                            <input id="phone" class="contact-input white-input" name="user_phone"
                                    placeholder="Ваш телефон (не обязательно)" type="text" v-model="phone"
                                    autocomplete="off">
 
-                            <textarea class="contact-commnent white-input" rows="2" cols="20" name="comment"
+                            <textarea id="comment" class="contact-commnent white-input" rows="2" cols="20"
+                                      name="comment"
                                       v-model="comment" autocomplete="off"
                                       placeholder="Можете оставить комментарий, он не обязателен, но если заполнен, то попадет прямиком к нам с:"></textarea>
 
@@ -52,26 +53,35 @@
         name: "auth-form",
         data: function () {
             return {
-                isErr: true,
+                isErr: false,
                 isReged: false,
-                error: '123',
+                error: '',
                 name: '',
-                sname: '',
+                secondName: '',
                 login: '',
                 password: '',
                 rePass: '',
                 phone: '',
                 comment: '',
+                mehBlock: {},
+                form: {},
+
+                fname: {},
+                fsecondName: {},
+                flogin: {},
+                fpassword: {},
+                frePass: {},
+                fphone: {},
+                fcomment: {},
             }
         },
 
         methods: {
             register() {
-
                 let data = {
                     data: {
                         name: this.name,
-                        sname: this.sname,
+                        secondName: this.secondName,
                         login: this.login,
                         password: this.password,
                         rePass: this.rePass,
@@ -79,15 +89,20 @@
                         apiUserToken: this.apiUserToken,
                     }
                 };
-
                 switch (true) {
                     case this.name === '':
-                    case this.sname === '':
+                    case this.secondName === '':
                     case this.login === '':
                     case this.password === '':
                     case this.rePass === '':
                         this.isErr = true;
-                        this.error = "Для регистрации необходимо заполнить все обязательные поля формы";
+                        this.error = 'Для регистрации необходимо заполнить все обязательные поля формы';
+                        this.mehBlock.style.backgroundColor = '#E33B35';
+                        setTimeout(() => {
+                            this.isErr = false;
+                            this.error = '';
+                            this.mehBlock.style.backgroundColor = 'white';
+                        }, 2000);
                         break;
 
                     default:
@@ -100,21 +115,35 @@
                             data: data
                         })
                             .then((response) => {
-                                console.log(response);
                                 this.isReged = true;
-                                this.comment = response.data;
+                                this.mainTitle.style.background = '#35E342';
+                                this.mehBlock.style.background = 'white';
+
+                                this.form.reset();
+
+                                this.fname.value = '';
+                                this.fsecondName.value = '';
+                                this.flogin.value = '';
+                                this.fpassword.value = '';
+                                this.frePass.value = '';
+                                this.fphone.value = '';
+                                this.fcomment.value = '';
+
+                                setTimeout(() => {
+                                    this.isReged = false;
+                                }, 2000);
                             })
                             .catch((error) => {
                                 if (error.response) {
-                                    // console.log(0);
-                                    // console.log(error.response);
-                                } else if (error.request) {
-                                    // console.log(1);
-                                    // console.log(error.request);
-                                } else {
-                                    // console.log('Error', error.message);
+                                    this.isErr = true;
+                                    this.error = 'Для регистрации необходимо заполнить все обязательные поля формы';
+                                    this.mehBlock.style.background = '#E33B35';
+                                    setTimeout(() => {
+                                        this.isErr = false;
+                                        this.error = '';
+                                        this.mehBlock.style.background = 'white';
+                                    }, 2000);
                                 }
-                                // console.log(error.config);
                             });
                         break;
                 }
@@ -122,11 +151,17 @@
         },
 
         mounted() {
-            /**
-             * Owl Carousel v2.2.0
-             * Copyright 2013-2016 David Deutsch
-             * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)
-             */
+            this.mehBlock = document.getElementById('meh_block_form');
+            this.form = document.getElementById('contact-form');
+
+            this.fname = document.getElementById('name');
+            this.fsecondName = document.getElementById('secondName');
+            this.flogin = document.getElementById('login');
+            this.fpassword = document.getElementById('password');
+            this.frePass = document.getElementById('rePass');
+            this.fphone = document.getElementById('phone');
+            this.fcomment = document.getElementById('comment');
+
             !function (a, b, c, d) {
                 function e(b, c) {
                     this.settings = null, this.options = a.extend({}, e.Defaults, c), this.$element = a(b), this._handlers = {}, this._plugins = {}, this._supress = {}, this._current = null, this._speed = null, this._coordinates = [], this._breakpoint = null, this._width = null, this._items = [], this._clones = [], this._mergers = [], this._widths = [], this._invalidated = {}, this._pipe = [], this._drag = {

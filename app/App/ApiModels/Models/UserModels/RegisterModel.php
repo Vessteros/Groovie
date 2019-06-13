@@ -45,6 +45,9 @@ class RegisterModel extends BaseModel
 
             $data->id = $user['id'];
             $data->token = $user['remember_token'];
+            $data->name = $user['name'];
+            $data->secondName = $user['secondName'];
+            $data->lastName = $user['lastName'];
             $data->login = $user['email'];
             $data->password = $user['password'];
         } catch (QueryException $e) {

@@ -76,9 +76,7 @@ class Handler extends ExceptionHandler
                 $response->status = 'failure';
                 $response->problem = $problem;
 
-                $problem->line = $exception->getLine();
                 $problem->message = $exception->getMessage();
-                $problem->file = $exception->getFile();
 
                 $return = Response($response, 400);
                 break;

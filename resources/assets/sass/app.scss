@@ -69,12 +69,7 @@ body:hover::-webkit-scrollbar-thumb {
 // Стили блока экрана
 @import "landing/land/screen";
 
-//Новый лендинг
-//@import "landing/newLanding/animate.css";
-//@import "landing/newLanding/bootstrap.css";
-//@import "landing/newLanding/helper.css";
-//@import "landing/newLanding/owl.carousel.min.css";
-//@import "landing/newLanding/owl.theme.default.min.css";
-//@import "landing/newLanding/pe-icon-7-stroke.css";
-//@import "landing/newLanding/style.css";
-//@import "landing/newLanding/style-magnific-popup.css";
+// Административная панель
+@import "adminPanel/header";
+@import "adminPanel/body";
+@import "adminPanel/auth";

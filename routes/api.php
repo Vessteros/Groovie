@@ -31,3 +31,11 @@ Route::post('/user/network_token/get', getMethod('Profile', 'getNetworkAccessTok
 
 Route::get('/user/{id}/get', getMethod('Profile', 'userGet'));
 Route::get('/user/network_list', getMethod('Profile', 'getConnectedNetworks'));
+
+Route::get('/list/feedback', 'AdminControllers\\ContentController@getFeedbackListAction')->name('feedback.list');
+
+Route::post('/feedback/{id}/bugreport/set', 'AdminControllers\\ContentController@setFeedbackBugreportAction');
+Route::post('/feedback/{id}/closed/set', 'AdminControllers\\ContentController@setFeedbackClosedAction');
+
+Route::post('/news/create', 'AdminControllers\\ContentController@createNewsAction');
+Route::post('/update/create', 'AdminControllers\\ContentController@createUpdateAction');

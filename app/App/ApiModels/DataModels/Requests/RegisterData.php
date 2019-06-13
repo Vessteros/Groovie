@@ -45,7 +45,7 @@ class RegisterData implements RequestDataInterface
     {
         $instance = new self;
 
-        foreach ($data as $key => $value) {
+        foreach ($data['data'] as $key => $value) {
             $instance->{$key} = $value ?? '';
         }
 

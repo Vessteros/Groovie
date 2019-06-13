@@ -14,8 +14,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', 'IndexController@index');
-
 Auth::routes();
 
 // Route::get('/accounts', 'AccountsController@index')->name('accounts');
@@ -31,3 +29,10 @@ Auth::routes();
 # LANDING!!!
 
 Route::get('/', 'SiteControllers\IndexController@indexAction')->name('/');
+
+Route::get('/admin', 'AdminControllers\\ContentController@newsAction')->name('admin');
+Route::get('/admin/feedback', 'AdminControllers\\ContentController@indexAction')->name('feedback');
+Route::get('/admin/news', 'AdminControllers\\ContentController@newsAction')->name('news');
+Route::get('/admin/updates', 'AdminControllers\\ContentController@updatesAction')->name('updates');
+
+// Route::get('/admin/auth', 'AdminControllers\\AuthController@showFormAction')->name('admin.auth');
